@@ -1,0 +1,1089 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.container {
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.header {
+    font-size: 2.5rem;
+    font-weight: 550;
+    margin-bottom: 40px;
+}
+
+.top-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+.top-section .card {
+    background-color: #f0e3e3;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease;
+    margin: 0; /* Remove margin */
+    flex-shrink: 0; /* Ensure the card doesn't shrink */
+}
+
+.top-section .card:hover {
+    transform: translateY(-10px);
+}
+
+.top-section .top-image {
+    flex-grow: 1; /* Take up remaining space */
+    text-align: right;
+    margin-right: 0px; /* Add space between image and card */
+}
+
+.top-section .top-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.brochure-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-basis: 50%;
+    margin: 20px auto; /* Center the form */
+}
+
+.brochure-form h2 {
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.brochure-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.brochure-form input,textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.brochure-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    background: linear-gradient(to right, #076b2d, #9ffac0);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.brochure-form button:hover {
+    background-color: #0056b3;
+}
+
+.brochure-image {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.brochure-image img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #f0e3e3;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px; /* Default height for other cards */
+    object-fit: cover; /* Ensure image covers the entire area */
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.first-card img {
+    height: 500px; /* Increased height for the first card */
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 20px 0 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px; /* Ensure proper spacing between paragraphs */
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4b53bc;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.card a:hover {
+    background-color: #353d9e;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .top-section {
+        flex-direction: column;
+        text-align: center;
+        align-items: center; /* Ensure centered alignment */
+    }
+    .top-section .card {
+        width: 90%; /* Adjust width to ensure cards are centered */
+        margin-right: 0;
+        margin-top: 20px; /* Add space between cards */
+    }
+    .top-section .top-image {
+        width: 100%; /* Adjust width for image */
+        margin-top: 0; /* Remove top margin */
+        margin-bottom: 20px; /* Add bottom margin */
+    }
+    .top-section .top-image img {
+        border-radius: 0; /* Remove border-radius for full width */
+    }
+    .cards {
+        justify-content: center;
+        gap: 20px;
+        flex-direction: column;
+    }
+    .card {
+        width: 90%; /* Ensure cards are centered */
+        margin-bottom: 20px; /* Add space between cards */
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Default width */
+    max-width: 800px; /* Maximum width */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.content {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.text-section, .list-section, .documents-section {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.text-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.text-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.text-section p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.list-section {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list-item {
+    background-color: #f0e3e3;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.list-item span {
+    background-color: #ff6b6b;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.box {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.box:hover {
+    background-color: #42c6ee;
+    color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.box p:hover {
+    color: #fff;
+}
+
+.check {
+    background-color: #42c6ee;
+    border-radius: 50%;
+    display: inline-block;
+    height: 25px;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 25px;
+}
+
+.documents-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.documents-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.document-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.document-item span {
+    background-color: #42c6ee;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.document-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(to right, #2c3e50, #4ca1af); /* Adjust colors as needed */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative; /* Ensure the mobile menu is positioned correctly */
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin-right: 20px;
+}
+
+nav a:hover {
+    color: #82c0ff; /* Lightened color for hover effect */
+}
+
+.menu-icon {
+    display: none; /* Hidden by default */
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0; /* Stay on the right */
+    background-color: rgb(0, 0, 0); /* Black*/
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the menu */
+    padding-top: 60px; /* Place content 60px from the top */
+}
+
+.mobile-menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.mobile-menu a:hover {
+    color: #f1f1f1;
+}
+
+.mobile-menu .closebtn {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    font-size: 36px;
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(to bottom, #2c3e50, #4ca1af); /* Adjust colors as needed */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .footer-content .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+footer .footer-content .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+footer .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+footer .social-icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+footer .social-icons a:hover {
+    color: #82c0ff; /* Lightened color for hover effect */
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+footer p a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Header and Footer */
+@media (max-width: 768px) {
+    header {
+        justify-content: space-between;
+        flex-direction: row; /* Make sure elements are aligned in a row */
+    }
+
+    nav {
+        display: none; /* Hide the navigation links */
+    }
+
+    .menu-icon {
+        display: block; /* Show the menu icon */
+    }
+
+    footer .footer-content {
+        flex-direction: column;
+    }
+
+    footer .social-icons {
+        flex-direction: row; /* Keep the icons side by side */
+        gap: 10px;
+    }
+}
+
+
+
+
+/* Other existing styles */
+
+.faq {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.faq p, .faq ul {
+    font-size: 1rem;
+    color: #333;
+}
+
+.faq ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.faq ul li {
+    margin-bottom: 5px;
+}
+
+/* Adjusting padding and margins for better spacing */
+.faq p {
+    margin-bottom: 10px;
+}
+
+/* Ensure the "Did You Know?" section is properly styled */
+#didYouKnowSection {
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+
+
+/* Other existing styles */
+
+.faq {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.faq p, .faq ul {
+    font-size: 1rem;
+    color: #333;
+}
+
+.faq ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.faq ul li {
+    margin-bottom: 5px;
+}
+
+/* Adjusting padding and margins for better spacing */
+.faq p {
+    margin-bottom: 10px;
+}
+
+/* Ensure the "Did You Know?" section is properly styled */
+#didYouKnowSection {
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+
+
+/* FAQ styles for better readability */
+.faq ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove default padding */
+}
+
+.faq ul li {
+    margin-bottom: 20px; /* Add space between questions */
+}
+
+.faq ul li strong {
+    display: block; /* Display questions as block elements */
+    font-size: 1.2rem; /* Increase font size for questions */
+    color: #007bff; /* Color for questions */
+    margin-bottom: 5px; /* Space between question and answer */
+}
+
+.faq ul li p {
+    margin: 0; /* Remove default margin */
+    padding-left: 15px; /* Indent answers for clarity */
+    color: #333; /* Color for answers */
+}
+
+
+
+.call-action {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+.phone-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+
+@media only screen and (max-width: 600px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    li {
+        font-size: 1rem;
+    }
+}
+
+.contact-icons {
+    position: fixed;
+    right: 20px;
+    bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.icon-container {
+    background-color: #25D366; /* WhatsApp icon background color */
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.icon-container:nth-child(1) {
+    background-color: #34b7f1; /* Phone icon background color */
+}
+
+.icon-text {
+    visibility: hidden;
+    width: 100px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1000;
+    bottom: 18%;
+    right: 55px;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+}
+
+.icon-container:hover .icon-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.icon-container i {
+    color: white; /* Icon color */
+    font-size: 30px; /* Icon size */
+}
+
+.icon-container .fa-phone { /* Adjust if this is the correct class for your phone icon */
+    font-size: 26px; /* Adjust size to match others if necessary */
+}
+
+.content ul li,
+.second-content ul li {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+
+.brochure-form select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.brochure-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-label-left {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 200;
+    color: #333;
+    text-align: left; /* Align text to the left */
+}
+
+.brochure-form select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Manrope', sans-serif;
+
+}
+
+.brochure-form label {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Manrope', sans-serif;
+
+}
+
+
+
+
+/* Default styles (visible on larger screens) */
+.top-section .top-image {
+    display: block;
+}
+
+/* Hide the top image on mobile devices */
+@media (max-width: 768px) {
+    .top-section .top-image {
+        display: none;
+    }
+}
+
+
+header {
+    background: linear-gradient(to right, #2c3e50, #4ca1af); /* Adjust colors as needed */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    position: fixed; /* Make the header fixed */
+    top: 0; /* Position it at the top */
+    width: 100%; /* Ensure it spans the full width of the viewport */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+body {
+    padding-top: 50px; /* Add padding to prevent content from being hidden behind the fixed header */
+}
+
+
+
+
+.car-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.car-details label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+.car-details select, .car-details input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Manrope', sans-serif;
+    width: 30%;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    header {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+        margin-right: 20px;
+    }
+
+    .car-details {
+        flex-direction: column;
+    }
+
+    .car-details select, .car-details input {
+        width: 94%;
+        min-width: unset; /* Reset min-width for mobile views */
+    }
+
+    .brochure-form {
+        padding: 20px;
+    }
+}
+
+
+
+
+/* FAQ styles for better readability */
+#insuranceDetails {
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+#insuranceDetails h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.faq {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.faq p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.faq p strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+
+
+
+
+
+.best-quotes-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4b53bc;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.best-quotes-btn:hover {
+    background-color: #353d9e;
+}
+
+
+
+
+
+
+
+.top-section {
+    position: relative;
+    text-align: center;
+}
+
+.top-image {
+    position: relative;
+}
+
+.top-image img {
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 98.5%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 20px;
+}
+
+.overlay-content {
+    padding: 20px;
+    max-width: 343px;
+    text-align: center;
+    margin-right: 700px;
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.overlay-content p {
+    font-size: 18px;
+}
+
+
+
+
+
+/* Default styles (visible on all screens) */
+.top-section .first-card {
+    display: block;
+}
+
+/* Hide the first card on desktop views */
+@media (min-width: 769px) {
+    .top-section .first-card {
+        display: none;
+    }
+}
+
+
+
+
+.top-section {
+    position: relative;
+    text-align: left; /* Align text to the left */
+}
+
+.top-image {
+    position: relative;
+}
+
+.top-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 98.5%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    align-items: center;
+    color: white;
+    border-radius: 20px;
+    padding-left: 20px; /* Add padding to the left */
+}
+
+.overlay-content {
+    max-width: 50%; /* Adjust width to fit the content on the left */
+    text-align: left; /* Align text to the left */
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.overlay-content p {
+    font-size: 18px;
+}
+
+.best-quotes-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4b53bc;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.best-quotes-btn:hover {
+    background-color: #353d9e;
+}

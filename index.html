@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Plans</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="New age insurance logo.png" alt="Logo">
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#" onclick="openModal('quoteModal')">Insurance Details</a>
+            <a href="#" onclick="openModal('quoteModal3')">About Us</a>
+            <a href="#" onclick="toggleForm()">Contact Us</a>
+            <a href="#didYouKnowSection" onclick="toggleDidYouKnow()">Did you know?</a>
+        </nav>
+        <div class="menu-icon" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="javascript:void(0);" class="closebtn" onclick="toggleMobileMenu()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#" onclick="openModal('quoteModal')">Insurance Details</a>
+        <a href="#" onclick="openModal('quoteModal3')">About Us</a>
+        <a href="#" onclick="toggleForm()">Contact Us</a>
+        <a href="#didYouKnowSection" onclick="toggleDidYouKnow()">Did you know?</a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <span id="typed-header"></span>
+        </div>
+
+        <div class="top-section">
+            <div class="top-image">
+                <img src="pexels-thelazyartist-1552224 copy.jpg" alt="Family">
+                <div class="overlay">
+                    <div class="overlay-content">
+                        <h2>Protect What Matters Most</h2>
+                        <p>Life is precious. Road accidents can happen anytime, anywhere. Ensure you and your loved ones are covered with our insurance plans.</p>
+                        <a href="javascript:void(0);" class="best-quotes-btn" onclick="closeModal('quoteModal4'); toggleForm();">Best Quotes →</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card first-card">
+                <img src="pexels-luis-zambrano-3782493-16438735.jpg" alt="Car Insurance">
+                <h3>Insurance for your Car</h3>
+                <p>Choose from a variety of plans that suit your needs and budget. Get your quote now!</p>
+                <a href="javascript:void(0);" onclick="toggleForm()">Best Quotes →</a>
+            </div>
+        </div>
+        
+        
+        <div class="brochure-form" id="brochureForm" style="display: none;">
+            <form action="https://formspree.io/f/mrgnvzdk" method="POST">
+                <input type="text" id="name" name="name" placeholder="Name*" required>
+                <input type="email" id="email" name="email" placeholder="Email*" required>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number*" required>
+                <label for="policyType" class="form-label-left">Select Policy Type:</label>
+                <select id="policyType" name="policyType" required>
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="TPL">TPL</option>
+                    <option value="Comprehensive">Comprehensive</option>
+                </select>
+                <div class="car-details">
+                    <label for="make" class="form-label-left">Make</label>
+                    <input list="makeList" id="make" name="make" placeholder="Type or select Make" required>
+                    <datalist id="makeList">
+                        <!-- Options will be populated by JavaScript -->
+                    </datalist>
+                    <label for="model" class="form-label-left">Model</label>
+                    <input list="modelList" id="model" name="model" placeholder="Type or select Model" required>
+                    <datalist id="modelList">
+                        <!-- Options will be populated by JavaScript -->
+                    </datalist>
+                    <label for="year" class="form-label-left">Year</label>
+                    <select id="year" name="year" required>
+                        <option value="" disabled selected>Select Year</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <textarea placeholder="Message" name="Message"></textarea>
+                <button type="submit">SUBMIT</button>
+            </form>
+        </div>
+
+
+
+
+        <div class="cards">
+            <div class="card">
+                <img src="4th card'.jpg" alt="Car Insurance">
+                <h3>Insurance Types and Benefits</h3>
+                <p>Comprehensive Insurance(Recommended)<br>
+                   Third Party Liability(TPL)</p>
+                <a href="javascript:void(0);" onclick="openModal('quoteModal4')">Know More →</a>
+            </div>
+            <div class="card">
+                <img src="3rd card (2).jpg" alt="Car Insurance">
+                <h3>How Can I get low cost vehicle Insurance?</h3>
+                <p>There's no magic formula for getting value for money......</p>
+                <a href="javascript:void(0);" onclick="openModal('quoteModal')">Know More →</a>
+            </div>
+            <div class="card">
+                <img src="2nd card (2).jpg" alt="Car Insurance">
+                <h3>Don't auto renew insurance!</h3>
+                <p>Why drivers shouldn’t allow their car insurance policies to auto-renew</p>
+                <a href="javascript:void(0);" onclick="openModal('quoteModal2')">Know More →</a>
+            </div>
+            <div class="card">
+                <img src="about usssss.jpg" alt="Car Insurance">
+                <h3>Why renew your Insurance with us?</h3>
+                <p>At New Age Insurance, we believe in providing an unmatched....</p>
+                <a href="javascript:void(0);" onclick="openModal('quoteModal3')">Know More →</a>
+            </div>
+        </div>
+
+        <!-- Did You Know Section -->
+        <div id="didYouKnowSection" style="display: none;">
+            <h2>Did You Know?</h2>
+            <div class="faq">
+                <h3>Taxi Fares Reimbursement</h3>
+                <p>Taxi Fares Reimbursement is a service offered by some car insurance policies where the insurance company covers the cost of taxi fares when your car is unavailable due to a covered event, such as an accident or repair.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Coverage Limits: There is usually a maximum amount or limit per day or per incident.</li>
+                    <li>Conditions: The reimbursement typically applies only when the car is being repaired for a covered claim.</li>
+                    <li>Claims Process: To claim this benefit, you may need to provide receipts for the taxi fares incurred.</li>
+                </ul>
+            </div>
+            <div class="faq">
+                <h3>Towing</h3>
+                <p>Towing coverage is a part of car insurance that pays for the cost of towing your vehicle to a repair shop after an accident or breakdown.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Coverage Limits: There may be limits on how far your vehicle can be towed (e.g., 100 miles).</li>
+                    <li>Conditions: It generally covers towing to the nearest qualified repair facility.</li>
+                    <li>Additional Services: Sometimes, towing coverage is bundled with roadside assistance, which can include services like jump-starting a dead battery, changing a flat tire, or delivering fuel.</li>
+                </ul>
+            </div>
+            <div class="faq">
+                <h3>Car Renting Charges Reimbursement</h3>
+                <p>Car Renting Charges Reimbursement is a service that provides coverage for rental car expenses while your vehicle is being repaired due to a covered incident.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Coverage Limits: There are typically daily limits (e.g., 300 AED per day) and a total limit (e.g., up to 3000 AED).</li>
+                    <li>Conditions: The reimbursement is available only for the period your car is in the shop for repairs after a covered claim.</li>
+                    <li>Rental Options: Some insurance companies have agreements with specific rental car companies, or they may allow you to choose any rental service.</li>
+                </ul>
+            </div>
+            <div class="faq">
+                <h3>Agency Maintenance</h3>
+                <p>Agency Maintenance refers to regular, scheduled maintenance services provided by authorized dealerships or service centers affiliated with the car's manufacturer.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Benefits: Ensures that the vehicle is maintained according to the manufacturer's specifications, which can help preserve the warranty.</li>
+                    <li>Coverage: This is not typically covered by standard car insurance but may be part of an extended warranty or maintenance plan purchased separately.</li>
+                    <li>Services Included: May include oil changes, tire rotations, brake inspections, and other routine maintenance tasks.</li>
+                </ul>
+            </div>
+            <div class="faq">
+                <h3>Agency Repair</h3>
+                <p>Agency Repair refers to repair services performed by authorized dealerships or service centers that are approved by the car's manufacturer.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Benefits: Repairs are done according to manufacturer standards, often using genuine parts.</li>
+                    <li>Coverage: Many comprehensive car insurance policies offer this as an option or include it for a certain period.</li>
+                    <li>Conditions: Typically applies to newer vehicles and may be limited to a certain number of years or mileage.</li>
+                </ul>
+            </div>
+            <div class="faq">
+                <h3>FAQs</h3>
+                <p>FAQs provide answers to common questions about car insurance policies, coverage options, claims process, and other related topics.</p>
+                <p><strong>Common FAQs:</strong></p>
+                <ul>
+                    <li>
+                        <strong>What is covered under a comprehensive car insurance policy?</strong>
+                        <p>Comprehensive coverage usually includes protection against theft, vandalism, natural disasters, fire, and damage to the car from a collision.</p>
+                    </li>
+                    <li>
+                        <strong>How do I file a claim?</strong>
+                        <p>Contact your insurance provider, provide details of the incident, submit any required documents, and follow their instructions for inspection and repairs.</p>
+                    </li>
+                    <li>
+                        <strong>Will my insurance premium increase after a claim?</strong>
+                        <p>It depends on the insurer and the nature of the claim. Some insurers offer accident forgiveness, which means your first claim might not affect your premium.</p>
+                    </li>
+                    <li>
+                        <strong>Can I choose my repair shop?</strong>
+                        <p>Many insurers have preferred repair networks, but you may have the option to choose your own. Check your policy for specifics.</p>
+                    </li>
+                    <li>
+                        <strong>What is a deductible?</strong>
+                        <p>A deductible is the amount you pay out of pocket before your insurance covers the rest of the claim. Higher deductibles can lower your premium.</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Modal Structures -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('quoteModal')">&times;</span>
+            <div class="content">
+                <h2>How can I get low cost vehicle insurance?</h2>
+                <p>There's no magic formula for getting value for money Vehicle Insurance in the UAE but there are some steps you can follow and things you can do to get the best deal for your dirhams! Here's what he suggests:</p>
+                <div class="list-section">
+                    <div class="list-item">
+                        <p>Never buy vehicle insurance at the last minute. Give yourself plenty of time to consider the coverage you need against what's available in the market. If time is running out then the budget can too if you blow it by taking the first deal that's on offer.....even worse, you might just end up paying a lot more money for a whole lot less cover!</p>
+                    </div>
+                    <div class="list-item">
+                        <p>Don't be tempted to "go it alone" in your search for the best policy at the best price. Let the experts help! At Eloquent Infotech our Insurance Advisors are just waiting to do the hard work for you. It's a simple but winning formula. No extra cost + no waste of your time = no brainer!</p>
+                    </div>
+                    <div class="list-item">
+                        <p>Don't get too hung up on price alone. Being mindful of money is no bad thing but being bound by a budget can prove "false economy" if you don't have the correct cover and lose out when it comes to a claim. At Eloquent Infotech we search the market and work with you to find the best cover for your money. It's a smart approach that pays off.</p>
+                    </div>
+                </div>
+                <a href="javascript:void(0);" class="best-quotes-btn" onclick="closeModal('quoteModal4'); toggleForm();">Get Quotes →</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="quoteModal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('quoteModal2')">&times;</span>
+            <div class="content">
+                <h2>Don't auto-renew your insurance</h2>
+                <p>If you've bought motor insurance years ago, you may not have everything that you need and you're probably paying too much.</p>
+                <div class="list-section">
+                    <div class="list-item">
+                        <p>We negotiate with all the leading insurance companies in the UAE to get your business the best deal.</p>
+                    </div>
+                    <div class="list-item">
+                        <p>Don't auto-renew your insurance with your existing company; contact us before you renew your insurance.</p>
+                    </div>
+                    <div class="list-item">
+                        <p>We help you renew your coverage and benefits, and we also ensure that you receive a no-claim discount to save you more money.</p>
+                    </div>
+                    <a href="javascript:void(0);" class="best-quotes-btn" onclick="closeModal('quoteModal4'); toggleForm();">Get Quotes →</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quoteModal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('quoteModal3')">&times;</span>
+            <div class="content">
+                <div class="text-section">
+                    <h2>Why Choose New Age Insurance?</h2>
+                    <p>At New Age Insurance, we believe in providing an unmatched customer experience, and our members recognize that as well! Here are some reasons why:</p>
+                </div>
+                <div class="list-section">
+                    <div class="list-item">
+                        <p>A dedicated insurance advisor to help answer your questions and help you with your car insurance purchase</p>
+                    </div>
+                    <div class="list-item">
+                        <p>A responsive, reliable, and dedicated claims manager to offer advice, reassurance, and assistance when you need it most</p>
+                    </div>
+                    <div class="list-item">
+                        <p>Competitive prices and comprehensive products providing the cover you need at a price you can afford from the insurers you can trust</p>
+                    </div>
+                    <div class="list-item">
+                        <p>Great value-added services such as discount vouchers that are sent with your policy: you just keep on saving with Us!</p>
+                    </div>
+                    <a href="javascript:void(0);" class="best-quotes-btn" onclick="closeModal('quoteModal4'); toggleForm();">Get Quotes →</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quoteModal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('quoteModal4')">&times;</span>
+            <div class="content">
+                <div id="insuranceDetails">
+                    <h2>Insurance Details and Benefits</h2>
+                
+                    
+                
+                    <div class="faq">
+                        <h3>Comprehensive Insurance Benefits</h3>
+                        <p><strong>1. Loss or Damage to Insured Vehicle:</strong> Comprehensive insurance covers loss or damage to your vehicle due to accidents, theft, natural disasters, and other covered events, ensuring peace of mind in various situations.</p>
+                        <p><strong>2. Third Party Liability for Bodily Injury and Property Damage:</strong> It provides coverage for bodily injury caused to third parties and damage to their property, up to AED 2,000,000.</p>
+                        <p><strong>3. Personal Accident Benefit for Driver and Passengers:</strong> Offers personal accident benefits for the driver and passengers, covering up to AED 200,000, providing financial protection in case of injuries or death.</p>
+                        <p><strong>4. 24-Hour Gold Roadside Assistance Program:</strong> Provides comprehensive roadside assistance including towing, battery boosting, fuel delivery, lock-out service, and more, ensuring you are never stranded.</p>
+                        <p><strong>5. Fire & Theft Cover:</strong> Covers fire and theft incidents, protecting you from significant financial loss in these unfortunate events.</p>
+                        <p><strong>6. Emergency Medical Expenses:</strong> Covers emergency medical expenses for injuries sustained in an accident, ensuring you get the necessary medical attention without financial strain.</p>
+                        <p><strong>7. Agency Repairs:</strong> Allows repairs at authorized dealers or approved garages, ensuring quality and reliability in vehicle repairs.</p>
+                        <p><strong>8. Geographical Limit:</strong> It extends coverage to the UAE and Oman, with options for additional coverage in other regions.</p>
+                        <a href="javascript:void(0);" class="best-quotes-btn" onclick="closeModal('quoteModal4'); toggleForm();">Get Quotes →</a>
+
+                    </div>
+
+                    <div class="faq">
+                        <h3>Third-Party Liability (TPL) Insurance Benefits</h3>
+                        <p><strong>1. Third Party Liability:</strong> TPL insurance covers the cost of damages to third parties' property and medical expenses for injuries caused to others in an accident where you are at fault.</p>
+                        <p><strong>2. Third Party Liability to Family Members:</strong> It extends coverage to include family members.</p>
+                        <p><strong>3. Roadside Assistance:</strong> TPL insurance provides recovery services in case of breakdowns.</p>
+                        <p><strong>4. Third Party Property Damage:</strong> It offers substantial coverage for property damage, up to AED 2,000,000.</p>
+                        <a href="javascript:void(0);" class="best-quotes-btn" onclick="closeModal('quoteModal4'); toggleForm();">Get Quotes →</a>
+
+                    </div>
+
+
+                </div>
+                <div class="text-section">
+                    <h2>Auto Insurance Benefits</h2>
+                </div>
+                <div class="list-section">
+                    <div class="list-item">
+                        <p><strong>Fast and Easy Claims:</strong> Contact our friendly team anytime, 24/7, for quick and easy claims processing.</p>
+                    </div>
+                    <div class="list-item">
+                        <p><strong>Personalized Policies:</strong> Customize your auto insurance policy to fit your needs, such as coverage for imported vehicles.</p>
+                    </div>
+                    <div class="list-item">
+                        <p><strong>Temporary Replacement Vehicle:</strong> All our auto insurance plans include a temporary replacement vehicle while yours is being repaired.</p>
+                    </div>
+                    <div class="list-item">
+                        <p><strong>Official Dealership Repairs:</strong> Have repairs done at official dealerships to maintain your vehicle's value.</p>
+                    </div>
+                </div>
+                <div class="documents-section">
+                    <h3>Required Documents</h3>
+                    <div class="document-item">
+                        <span>1</span>
+                        <p>Emirates ID</p>
+                    </div>
+                    <div class="document-item">
+                        <span>2</span>
+                        <p>Driving License</p>
+                    </div>
+                    <div class="document-item">
+                        <span>3</span>
+                        <p>Vehicle License (Mulkiya)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-icons">
+        <a href="tel:+971567644120" class="icon-container">
+            <i class="fas fa-phone"></i>
+            <div class="icon-text">Call Now</div>
+        </a>
+        <a href="https://wa.me/971567644120" class="icon-container">
+            <i class="fab fa-whatsapp"></i>
+            <div class="icon-text">WhatsApp</div>
+        </a>
+    </div>
+    <footer>
+        <div class="footer-content">
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <p>© 2024 New Age Insurance. All rights reserved.</p>
+    </footer>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="cars-data.js"></script>
+    <script>
+        $(document).ready(function () {
+            const makes = Object.keys(carData);
+            const makeList = $('#makeList');
+            const modelList = $('#modelList');
+            const makeInput = $('#make');
+            const modelInput = $('#model');
+            const yearSelect = $('#year');
+
+            makes.forEach(make => {
+                makeList.append(new Option(make, make));
+            });
+
+            makeInput.change(function () {
+                const selectedMake = $(this).val();
+                const models = carData[selectedMake] || [];
+                modelList.empty();
+                models.forEach(model => {
+                    modelList.append(new Option(model, model));
+                });
+            });
+
+            for (let year = new Date().getFullYear(); year >= 1990; year--) {
+                yearSelect.append(new Option(year, year));
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        function toggleForm() {
+            var form = document.getElementById('brochureForm');
+            if (form.style.display === 'none' || form.style.display === '') {
+                form.style.display = 'block';
+                form.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                form.style.display = 'none';
+            }
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobileMenu');
+            if (menu.style.width === '250px') {
+                menu.style.width = '0';
+            } else {
+                menu.style.width = '250px';
+            }
+        }
+
+        function toggleDidYouKnow() {
+            var section = document.getElementById('didYouKnowSection');
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+                section.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                section.style.display = 'none';
+            }
+        }
+        
+
+        function toggleForm() {
+    var form = document.getElementById('brochureForm');
+    var modals = document.querySelectorAll('.modal');
+
+    // Close all open modals
+    modals.forEach(function(modal) {
+        modal.style.display = 'none';
+    });
+
+    // Toggle the display of the form
+    if (form.style.display === 'none' || form.style.display === '') {
+        form.style.display = 'block';
+        form.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        form.style.display = 'none';
+    }
+}
+
+function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = 'none';
+}
+
+
+    </script>
+</body>
+</html>
